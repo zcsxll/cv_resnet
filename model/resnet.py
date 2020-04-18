@@ -228,6 +228,10 @@ def _resnet(arch, block, layers, pretrained, progress, **kwargs):
         model.load_state_dict(state_dict)
     return model
 
+def resnet10(pretrained=False, progress=True, **kwargs):
+    return _resnet('resnet9', BasicBlock, [1, 1, 1, 1], pretrained, progress,
+                   **kwargs)
+
 
 def resnet18(pretrained=False, progress=True, **kwargs):
     r"""ResNet-18 model from
